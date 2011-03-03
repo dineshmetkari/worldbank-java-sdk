@@ -50,6 +50,6 @@ public class LendingTypeQuerySample {
 	 * @param lendingType the lending type
 	 */
 	private static void printResult(LendingType lendingType) {
-		System.out.println(lendingType.getId() + ":" + lendingType.getContent());
+		System.out.println(lendingType.getId() + ":" + lendingType.getValue());
 	}
 }

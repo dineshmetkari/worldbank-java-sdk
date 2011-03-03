@@ -31,28 +31,28 @@ public class Adminregion extends SchemaEntity {
     /** The Constant serialVersionUID. */
 	private static final long serialVersionUID = 4717507282544653779L;
 	
-	/** The content. */
-	protected String content;
+	/** The value. */
+	protected String value;
     
     /** The id. */
     protected String id;
 
     /**
-     * Gets the content.
+     * Gets the value.
      * 
-     * @return the content
+     * @return the value
      */
-    public String getContent() {
-        return content;
+    public String getValue() {
+        return value;
     }
 
     /**
-     * Sets the content.
+     * Sets the value.
      * 
-     * @param value the new content
+     * @param value the new value
      */
-    public void setContent(String value) {
-        this.content = value;
+    public void setValue(String value) {
+        this.value = value;
     }
 
     /**

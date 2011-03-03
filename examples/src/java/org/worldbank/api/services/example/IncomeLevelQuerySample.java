@@ -19,7 +19,6 @@ package org.worldbank.api.services.example;
 import java.util.List;
 
 import org.worldbank.api.schema.IncomeLevel;
-import org.worldbank.api.schema.Source;
 import org.worldbank.api.services.IncomeLevelQuery;
 import org.worldbank.api.services.WorldBankQueryFactory;
 
@@ -51,6 +50,6 @@ public class IncomeLevelQuerySample {
 	 * @param incomeLevel the income level
 	 */
 	private static void printResult(IncomeLevel incomeLevel) {
-		System.out.println(incomeLevel.getId() + ":" + incomeLevel.getContent());
+		System.out.println(incomeLevel.getId() + ":" + incomeLevel.getValue());
 	}
 }

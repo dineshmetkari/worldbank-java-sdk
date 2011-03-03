@@ -138,7 +138,7 @@ public abstract class BaseWorldBankQuery<E> extends WorldBankApiGateway implemen
 	protected GsonBuilder getGsonBuilder() {
 		GsonBuilder builder = new GsonBuilder();
 		builder.setDateFormat(ApplicationConstants.DATE_FORMAT);
-		builder.setFieldNamingPolicy(FieldNamingPolicy.LOWER_CASE_WITH_UNDERSCORES);
+//		builder.setFieldNamingPolicy(FieldNamingPolicy.LOWER_CASE_WITH_UNDERSCORES);
 //		builder.registerTypeAdapter(Issue.State.class, new JsonDeserializer<Issue.State>() {
 //			@Override
 //			public Issue.State deserialize(JsonElement arg0, Type arg1,
