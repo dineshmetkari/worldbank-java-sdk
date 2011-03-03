@@ -29,13 +29,11 @@ import org.worldbank.api.services.constant.ApplicationConstants;
 import org.worldbank.api.services.constant.WorldBankApiUrls.WorldBankApiUrlBuilder;
 
 import com.google.gson.FieldNamingPolicy;
-import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
-import com.google.gson.reflect.TypeToken;
 
 /**
  * The Class BaseWorldBankQuery.
@@ -110,7 +108,10 @@ public abstract class BaseWorldBankQuery<E> extends WorldBankApiGateway implemen
 	protected PagedList<E> unmarshallList(JsonArray jsonArray) {
 		PagedArrayList<E> list = new PagedArrayList<E>();
 		if (jsonArray.size() == 2) {
-			JsonObject pageObject = jsonArray.get(0).getAsJsonObject();
+			JsonObject cursor = jsonArray.get(0).getAsJsonObject();
+			if (cursor != null) {
+				list.setCursor(getGsonBuilder().setFieldNamingPolicy(FieldNamingPolicy.LOWER_CASE_WITH_UNDERSCORES).create().fromJson(cursor, PagedArrayList.Cursor.class));
+			}
 			JsonArray results = jsonArray.get(1).getAsJsonArray();
 			for (JsonElement object : results) {
 				E element = unmarshall(object);

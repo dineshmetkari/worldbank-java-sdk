@@ -17,7 +17,6 @@
 package org.worldbank.api.common;
 
 import java.util.ArrayList;
-import java.util.List;
 
 
 /**
@@ -30,6 +29,38 @@ public class PagedArrayList<E> extends ArrayList<E> implements PagedList<E> {
 	
 	/** The cursor. */
 	private Cursor cursor = new Cursor();
+	
+	/* (non-Javadoc)
+	 * @see org.worldbank.api.common.PagedList#page()
+	 */
+	@Override
+	public long page() {
+		return cursor.getPage();
+	}
+
+	/* (non-Javadoc)
+	 * @see org.worldbank.api.common.PagedList#pages()
+	 */
+	@Override
+	public long pages() {
+		return cursor.getPages();
+	}
+
+	/* (non-Javadoc)
+	 * @see org.worldbank.api.common.PagedList#perPage()
+	 */
+	@Override
+	public long perPage() {
+		return cursor.getPerPage();
+	}
+
+	/* (non-Javadoc)
+	 * @see org.worldbank.api.common.PagedList#total()
+	 */
+	@Override
+	public long total() {
+		return cursor.getTotal();
+	}
 	
 	/**
 	 * Gets the cursor.
@@ -49,57 +80,47 @@ public class PagedArrayList<E> extends ArrayList<E> implements PagedList<E> {
 		this.cursor = cursor;
 	}
 	
-	/* (non-Javadoc)
-	 * @see org.worldbank.api.common.PagedList#getPages()
-	 */
-	public List<Page> getPages() {
-		return cursor.getPages();
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.worldbank.api.common.PagedList#getEstimatedResultCount()
-	 */
-	public long getEstimatedResultCount() {
-		return cursor.getEstimatedResultCount();
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.worldbank.api.common.PagedList#getCurrentPageIndex()
-	 */
-	public int getCurrentPageIndex() {
-		return cursor.getCurrentPageIndex();
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.worldbank.api.common.PagedList#getMoreResultsUrl()
-	 */
-	public String getMoreResultsUrl() {
-		return cursor.getMoreResultsUrl();
-	}
-	
 	/**
 	 * The Class Cursor.
 	 */
 	public static class Cursor {
 		
+		/** The page. */
+		private long page;
+		
 		/** The pages. */
-		private List<Page> pages = new ArrayList<Page>();
+		private long pages;
 		
-		/** The estimated result count. */
-		private long estimatedResultCount;
+		/** The per page. */
+		private long perPage;
 		
-		/** The current page index. */
-		private int currentPageIndex;
+		/** The total. */
+		private long total;
 		
-		/** The more results url. */
-		private String moreResultsUrl;
+		/**
+		 * Gets the page.
+		 * 
+		 * @return the page
+		 */
+		public long getPage() {
+			return page;
+		}
+		
+		/**
+		 * Sets the page.
+		 * 
+		 * @param page the new page
+		 */
+		public void setPage(long page) {
+			this.page = page;
+		}
 		
 		/**
 		 * Gets the pages.
 		 * 
 		 * @return the pages
 		 */
-		public List<Page> getPages() {
+		public long getPages() {
 			return pages;
 		}
 		
@@ -108,62 +129,44 @@ public class PagedArrayList<E> extends ArrayList<E> implements PagedList<E> {
 		 * 
 		 * @param pages the new pages
 		 */
-		public void setPages(List<Page> pages) {
+		public void setPages(long pages) {
 			this.pages = pages;
 		}
 		
 		/**
-		 * Gets the estimated result count.
+		 * Gets the per page.
 		 * 
-		 * @return the estimated result count
+		 * @return the per page
 		 */
-		public long getEstimatedResultCount() {
-			return estimatedResultCount;
+		public long getPerPage() {
+			return perPage;
 		}
 		
 		/**
-		 * Sets the estimated result count.
+		 * Sets the per page.
 		 * 
-		 * @param estimatedResultCount the new estimated result count
+		 * @param perPage the new per page
 		 */
-		public void setEstimatedResultCount(long estimatedResultCount) {
-			this.estimatedResultCount = estimatedResultCount;
+		public void setPerPage(long perPage) {
+			this.perPage = perPage;
 		}
 		
 		/**
-		 * Gets the current page index.
+		 * Gets the total.
 		 * 
-		 * @return the current page index
+		 * @return the total
 		 */
-		public int getCurrentPageIndex() {
-			return currentPageIndex;
+		public long getTotal() {
+			return total;
 		}
 		
 		/**
-		 * Sets the current page index.
+		 * Sets the total.
 		 * 
-		 * @param currentPageIndex the new current page index
+		 * @param total the new total
 		 */
-		public void setCurrentPageIndex(int currentPageIndex) {
-			this.currentPageIndex = currentPageIndex;
-		}
-		
-		/**
-		 * Gets the more results url.
-		 * 
-		 * @return the more results url
-		 */
-		public String getMoreResultsUrl() {
-			return moreResultsUrl;
-		}
-		
-		/**
-		 * Sets the more results url.
-		 * 
-		 * @param moreResultsUrl the new more results url
-		 */
-		public void setMoreResultsUrl(String moreResultsUrl) {
-			this.moreResultsUrl = moreResultsUrl;
+		public void setTotal(long total) {
+			this.total = total;
 		}
 	}
 }

@@ -22,89 +22,32 @@ import java.util.List;
  * The Interface PagedList.
  */
 public interface PagedList<E> extends List<E> {
-	
-	/**
-	 * The Class Page.
-	 */
-	public class Page {
-		
-		/** The start. */
-		private int start;
-		
-		/** The label. */
-		private int label;
-		
-		/**
-		 * Gets the start.
-		 * 
-		 * @return the start
-		 */
-		public int getStart() {
-			return start;
-		}
-		
-		/**
-		 * Sets the start.
-		 * 
-		 * @param start the new start
-		 */
-		public void setStart(int start) {
-			this.start = start;
-		}
-		
-		/**
-		 * Gets the label.
-		 * 
-		 * @return the label
-		 */
-		public int getLabel() {
-			return label;
-		}
-		
-		/**
-		 * Sets the label.
-		 * 
-		 * @param label the new label
-		 */
-		public void setLabel(int label) {
-			this.label = label;
-		}
 
-		/* (non-Javadoc)
-		 * @see java.lang.Object#toString()
-		 */
-		@Override
-		public String toString() {
-			return "Page [label=" + label + ", start=" + start + "]";
-		}
-	}
-	
+	/**
+	 * Page.
+	 * 
+	 * @return the long
+	 */
+	public long page();
 	
 	/**
-	 * Gets the pages.
+	 * Pages.
 	 * 
-	 * @return the pages
+	 * @return the long
 	 */
-	public List<Page> getPages();
+	public long pages();
 	
 	/**
-	 * Gets the estimated result count.
+	 * Per page.
 	 * 
-	 * @return the estimated result count
+	 * @return the long
 	 */
-	public long getEstimatedResultCount();
+	public long perPage();
 	
 	/**
-	 * Gets the current page index.
+	 * Total.
 	 * 
-	 * @return the current page index
+	 * @return the long
 	 */
-	public int getCurrentPageIndex();
-	
-	/**
-	 * Gets the more results url.
-	 * 
-	 * @return the more results url
-	 */
-	public String getMoreResultsUrl();
+	public long total();
 }
