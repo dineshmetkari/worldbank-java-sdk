@@ -14,20 +14,37 @@
  * limitations under the License. 
  * 
  */
-package org.worldbank.api.schema;
+package org.worldbank.api.services;
 
-import java.io.Serializable;
-import java.util.logging.Logger;
-
+import org.worldbank.api.common.PagedList;
 
 /**
- * The Class SchemaEntity.
+ * The Interface WorldBankQuery.
  */
-public abstract class SchemaEntity implements Serializable {
-
-	/** The logger. */
-    protected final Logger logger = Logger.getLogger(getClass().getCanonicalName());
+public interface WorldBankQuery<E> extends WorldBankCommunicator {
 	
-	/** The Constant serialVersionUID. */
-	private static final long serialVersionUID = 250056223059654638L;
+	/**
+	 * Single result.
+	 * 
+	 * @return the e
+	 */
+	public E singleResult();
+
+	/**
+	 * List.
+	 * 
+	 * @return the paged list< e>
+	 */
+	public PagedList<E> list();
+	
+	/**
+	 * Reset.
+	 */
+//	public void addResonseHandler(AsyncResponseHandler<List<T>> handler);
+	
+	/**
+	 * Reset.
+	 */
+	public void reset();
+
 }

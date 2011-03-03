@@ -1,5 +1,5 @@
 /*
- * Copyright 2010 Nabeel Mukhtar 
+ * Copyright 2010-2011 Nabeel Mukhtar 
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"); 
  * you may not use this file except in compliance with the License. 
@@ -39,7 +39,7 @@ import org.worldbank.api.services.constant.ApplicationConstants;
 
 
 /**
- * The Class GitHubApiGateway.
+ * The Class WorldBankApiGateway.
  */
 public abstract class WorldBankApiGateway {
 	
@@ -76,8 +76,7 @@ public abstract class WorldBankApiGateway {
 	/**
 	 * Sets the api version.
 	 * 
-	 * @param apiVersion
-	 *            the new api version
+	 * @param apiVersion the new api version
 	 */
 	public void setApiVersion(String apiVersion) {
 		this.apiVersion = apiVersion;
@@ -86,8 +85,7 @@ public abstract class WorldBankApiGateway {
 	/**
 	 * Sets the request headers.
 	 * 
-	 * @param requestHeaders
-	 *            the request headers
+	 * @param requestHeaders the request headers
 	 */
 	public void setRequestHeaders(Map<String, String> requestHeaders) {
 	    this.requestHeaders = requestHeaders;
@@ -105,10 +103,8 @@ public abstract class WorldBankApiGateway {
 	/**
 	 * Adds the request header.
 	 * 
-	 * @param headerName
-	 *            the header name
-	 * @param headerValue
-	 *            the header value
+	 * @param headerName the header name
+	 * @param headerValue the header value
 	 */
 	public void addRequestHeader(String headerName, String headerValue) {
 	    requestHeaders.put(headerName, headerValue);
@@ -117,8 +113,7 @@ public abstract class WorldBankApiGateway {
 	/**
 	 * Removes the request header.
 	 * 
-	 * @param headerName
-	 *            the header name
+	 * @param headerName the header name
 	 */
 	public void removeRequestHeader(String headerName) {
 	    requestHeaders.remove(headerName);
@@ -127,8 +122,7 @@ public abstract class WorldBankApiGateway {
 	/**
 	 * Sets the referrer.
 	 * 
-	 * @param referrer
-	 *            the new referrer
+	 * @param referrer the new referrer
 	 */
 	public void setReferrer(String referrer) {
 		requestHeaders.put(REFERRER, referrer);
@@ -137,8 +131,7 @@ public abstract class WorldBankApiGateway {
 	/**
 	 * Sets the user ip address.
 	 * 
-	 * @param userIpAddress
-	 *            the new user ip address
+	 * @param userIpAddress the new user ip address
 	 */
 	public void setUserIpAddress(String userIpAddress) {
 		this.userIpAddress = userIpAddress;
@@ -147,8 +140,7 @@ public abstract class WorldBankApiGateway {
 	/**
 	 * Convert stream to string.
 	 * 
-	 * @param is
-	 *            the is
+	 * @param is the is
 	 * 
 	 * @return the string
 	 */
@@ -183,8 +175,7 @@ public abstract class WorldBankApiGateway {
 	/**
 	 * Call api get.
 	 * 
-	 * @param apiUrl
-	 *            the api url
+	 * @param apiUrl the api url
 	 * 
 	 * @return the input stream
 	 */
@@ -195,10 +186,8 @@ public abstract class WorldBankApiGateway {
 	/**
 	 * Call api get.
 	 * 
-	 * @param apiUrl
-	 *            the api url
-	 * @param expected
-	 *            the expected
+	 * @param apiUrl the api url
+	 * @param expected the expected
 	 * 
 	 * @return the input stream
 	 */
@@ -244,10 +233,8 @@ public abstract class WorldBankApiGateway {
 	/**
 	 * Call api post.
 	 * 
-	 * @param apiUrl
-	 *            the api url
-	 * @param parameters
-	 *            the parameters
+	 * @param apiUrl the api url
+	 * @param parameters the parameters
 	 * 
 	 * @return the input stream
 	 */
@@ -258,12 +245,9 @@ public abstract class WorldBankApiGateway {
 	/**
 	 * Call api post.
 	 * 
-	 * @param apiUrl
-	 *            the api url
-	 * @param parameters
-	 *            the parameters
-	 * @param expected
-	 *            the expected
+	 * @param apiUrl the api url
+	 * @param parameters the parameters
+	 * @param expected the expected
 	 * 
 	 * @return the input stream
 	 */
@@ -314,8 +298,7 @@ public abstract class WorldBankApiGateway {
 	/**
 	 * Call api delete.
 	 * 
-	 * @param apiUrl
-	 *            the api url
+	 * @param apiUrl the api url
 	 * 
 	 * @return the input stream
 	 */
@@ -326,10 +309,8 @@ public abstract class WorldBankApiGateway {
 	/**
 	 * Call api delete.
 	 * 
-	 * @param apiUrl
-	 *            the api url
-	 * @param expected
-	 *            the expected
+	 * @param apiUrl the api url
+	 * @param expected the expected
 	 * 
 	 * @return the input stream
 	 */
@@ -371,8 +352,7 @@ public abstract class WorldBankApiGateway {
 	/**
 	 * Gets the parameters string.
 	 * 
-	 * @param parameters
-	 *            the parameters
+	 * @param parameters the parameters
 	 * 
 	 * @return the parameters string
 	 */
@@ -394,16 +374,11 @@ public abstract class WorldBankApiGateway {
 	/**
 	 * Call api method.
 	 * 
-	 * @param apiUrl
-	 *            the api url
-	 * @param xmlContent
-	 *            the xml content
-	 * @param contentType
-	 *            the content type
-	 * @param method
-	 *            the method
-	 * @param expected
-	 *            the expected
+	 * @param apiUrl the api url
+	 * @param xmlContent the xml content
+	 * @param contentType the content type
+	 * @param method the method
+	 * @param expected the expected
 	 * 
 	 * @return the input stream
 	 */
@@ -457,8 +432,7 @@ public abstract class WorldBankApiGateway {
 	/**
 	 * Close stream.
 	 * 
-	 * @param is
-	 *            the is
+	 * @param is the is
 	 */
 	protected void closeStream(InputStream is) {
 	    try {
@@ -473,8 +447,7 @@ public abstract class WorldBankApiGateway {
 	/**
 	 * Close connection.
 	 * 
-	 * @param connection
-	 *            the connection
+	 * @param connection the connection
 	 */
 	protected void closeConnection(HttpURLConnection connection) {
 	    try {
@@ -489,15 +462,12 @@ public abstract class WorldBankApiGateway {
 	/**
 	 * Gets the wrapped input stream.
 	 * 
-	 * @param is
-	 *            the is
-	 * @param gzip
-	 *            the gzip
+	 * @param is the is
+	 * @param gzip the gzip
 	 * 
 	 * @return the wrapped input stream
 	 * 
-	 * @throws IOException
-	 *             Signals that an I/O exception has occurred.
+	 * @throws IOException Signals that an I/O exception has occurred.
 	 */
 	protected InputStream getWrappedInputStream(InputStream is, boolean gzip)
 			throws IOException {
@@ -509,13 +479,12 @@ public abstract class WorldBankApiGateway {
 			}
 
     /**
-	 * Encode url.
-	 * 
-	 * @param original
-	 *            the original
-	 * 
-	 * @return the string
-	 */
+     * Encode url.
+     * 
+     * @param original the original
+     * 
+     * @return the string
+     */
     private static String encodeUrl(String original) {
     	try {
 			return URLEncoder.encode(original, ApplicationConstants.CONTENT_ENCODING);

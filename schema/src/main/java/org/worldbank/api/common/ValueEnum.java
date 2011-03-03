@@ -14,20 +14,17 @@
  * limitations under the License. 
  * 
  */
-package org.worldbank.api.schema;
-
-import java.io.Serializable;
-import java.util.logging.Logger;
-
+package org.worldbank.api.common;
 
 /**
- * The Class SchemaEntity.
+ * The Interface ValueEnum.
  */
-public abstract class SchemaEntity implements Serializable {
+public interface ValueEnum {
 
-	/** The logger. */
-    protected final Logger logger = Logger.getLogger(getClass().getCanonicalName());
-	
-	/** The Constant serialVersionUID. */
-	private static final long serialVersionUID = 250056223059654638L;
+	/**
+	 * Value.
+	 * 
+	 * @return the string
+	 */
+	public abstract String value();
 }

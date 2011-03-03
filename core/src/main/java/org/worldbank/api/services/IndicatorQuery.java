@@ -14,20 +14,14 @@
  * limitations under the License. 
  * 
  */
-package org.worldbank.api.schema;
+package org.worldbank.api.services;
 
-import java.io.Serializable;
-import java.util.logging.Logger;
+import org.worldbank.api.schema.Indicator;
+
 
 
 /**
- * The Class SchemaEntity.
+ * The Interface IndicatorQuery.
  */
-public abstract class SchemaEntity implements Serializable {
-
-	/** The logger. */
-    protected final Logger logger = Logger.getLogger(getClass().getCanonicalName());
-	
-	/** The Constant serialVersionUID. */
-	private static final long serialVersionUID = 250056223059654638L;
+public interface IndicatorQuery extends WorldBankQuery<Indicator> {
 }

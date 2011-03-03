@@ -14,20 +14,14 @@
  * limitations under the License. 
  * 
  */
-package org.worldbank.api.schema;
+package org.worldbank.api.services;
 
-import java.io.Serializable;
-import java.util.logging.Logger;
+import org.worldbank.api.schema.Country;
+
 
 
 /**
- * The Class SchemaEntity.
+ * The Interface CountryQuery.
  */
-public abstract class SchemaEntity implements Serializable {
-
-	/** The logger. */
-    protected final Logger logger = Logger.getLogger(getClass().getCanonicalName());
-	
-	/** The Constant serialVersionUID. */
-	private static final long serialVersionUID = 250056223059654638L;
+public interface CountryQuery extends WorldBankQuery<Country> {
 }

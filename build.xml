@@ -14,8 +14,6 @@
         <pathelement location="target"/>
         <pathelement location="dev-lib/junit-4.5.jar"/>
         <pathelement location="lib/gson-1.4.jar"/>
-        <pathelement location="lib/rome-1.0.jar"/>
-        <pathelement location="lib/jdom-1.0.jar"/>
     </path>
     <target name="init">
         <mkdir dir="target"/>
@@ -33,9 +31,6 @@
         </copy>
         <copy includeemptydirs="false" todir="target">
             <fileset dir="core/src/test/resources" excludes="**/*.launch, **/*.java"/>
-        </copy>
-        <copy includeemptydirs="false" todir="target">
-            <fileset dir="examples/src/resources" excludes="**/*.launch, **/*.java"/>
         </copy>
         <copy includeemptydirs="false" todir="target">
             <fileset dir="examples/src/java" excludes="**/*.launch, **/*.java"/>
@@ -70,115 +65,48 @@
             <classpath refid="worldbank-java-sdk.classpath"/>
         </javac>
         <javac debug="true" debuglevel="${debuglevel}" destdir="target" source="${source}" target="${target}">
-            <src path="examples/src/resources"/>
-            <classpath refid="worldbank-java-sdk.classpath"/>
-        </javac>
-        <javac debug="true" debuglevel="${debuglevel}" destdir="target" source="${source}" target="${target}">
             <src path="examples/src/java"/>
             <classpath refid="worldbank-java-sdk.classpath"/>
         </javac>
     </target>
     <target description="Build all projects which reference this project. Useful to propagate changes." name="build-refprojects"/>
-    <target name="AllTests">
+    <target name="AllTests (1)">
         <mkdir dir="${junit.output.dir}"/>
         <junit fork="yes" printsummary="withOutAndErr">
             <formatter type="xml"/>
-            <test name="com.worldbank.api.v2.services.AllTests" todir="${junit.output.dir}"/>
+            <test name="org.worldbank.api.services.AllTests" todir="${junit.output.dir}"/>
             <classpath refid="worldbank-java-sdk.classpath"/>
         </junit>
     </target>
-    <target name="CommitApiSample">
-        <java classname="com.worldbank.api.v2.services.example.CommitApiSample" failonerror="true" fork="yes">
+    <target name="SourceQuerySample">
+        <java classname="org.worldbank.api.services.example.SourceQuerySample" failonerror="true" fork="yes">
             <classpath refid="worldbank-java-sdk.classpath"/>
         </java>
     </target>
-    <target name="CommitServiceTest">
-        <mkdir dir="${junit.output.dir}"/>
-        <junit fork="yes" printsummary="withOutAndErr">
-            <formatter type="xml"/>
-            <test name="com.worldbank.api.v2.services.CommitServiceTest" todir="${junit.output.dir}"/>
-            <classpath refid="worldbank-java-sdk.classpath"/>
-        </junit>
-    </target>
-    <target name="GistApiSample">
-        <java classname="com.worldbank.api.v2.services.example.GistApiSample" failonerror="true" fork="yes">
+    <target name="CountryQuerySample">
+        <java classname="org.worldbank.api.services.example.CountryQuerySample" failonerror="true" fork="yes">
             <classpath refid="worldbank-java-sdk.classpath"/>
         </java>
     </target>
-    <target name="GistServiceTest">
-        <mkdir dir="${junit.output.dir}"/>
-        <junit fork="yes" printsummary="withOutAndErr">
-            <formatter type="xml"/>
-            <test name="com.worldbank.api.v2.services.GistServiceTest" todir="${junit.output.dir}"/>
-            <classpath refid="worldbank-java-sdk.classpath"/>
-        </junit>
-    </target>
-    <target name="IssueApiSample">
-        <java classname="com.worldbank.api.v2.services.example.IssueApiSample" failonerror="true" fork="yes">
+    <target name="IncomeLevelQuerySample">
+        <java classname="org.worldbank.api.services.example.IncomeLevelQuerySample" failonerror="true" fork="yes">
             <classpath refid="worldbank-java-sdk.classpath"/>
         </java>
     </target>
-    <target name="IssueServiceTest">
-        <mkdir dir="${junit.output.dir}"/>
-        <junit fork="yes" printsummary="withOutAndErr">
-            <formatter type="xml"/>
-            <test name="com.worldbank.api.v2.services.IssueServiceTest" todir="${junit.output.dir}"/>
-            <classpath refid="worldbank-java-sdk.classpath"/>
-        </junit>
-    </target>
-    <target name="NetworkApiSample">
-        <java classname="com.worldbank.api.v2.services.example.NetworkApiSample" failonerror="true" fork="yes">
+    <target name="IndicatorQuerySample">
+        <java classname="org.worldbank.api.services.example.IndicatorQuerySample" failonerror="true" fork="yes">
             <classpath refid="worldbank-java-sdk.classpath"/>
         </java>
     </target>
-    <target name="NetworkServiceTest">
-        <mkdir dir="${junit.output.dir}"/>
-        <junit fork="yes" printsummary="withOutAndErr">
-            <formatter type="xml"/>
-            <test name="com.worldbank.api.v2.services.NetworkServiceTest" todir="${junit.output.dir}"/>
-            <classpath refid="worldbank-java-sdk.classpath"/>
-        </junit>
-    </target>
-    <target name="OAuthExample (1)">
-        <java classname="com.worldbank.api.v2.services.example.OAuthExample" failonerror="true" fork="yes">
+    <target name="LendingTypeQuerySample">
+        <java classname="org.worldbank.api.services.example.LendingTypeQuerySample" failonerror="true" fork="yes">
             <classpath refid="worldbank-java-sdk.classpath"/>
         </java>
     </target>
-    <target name="ObjectApiSample">
-        <java classname="com.worldbank.api.v2.services.example.ObjectApiSample" failonerror="true" fork="yes">
+    <target name="TopicQuerySample">
+        <java classname="org.worldbank.api.services.example.TopicQuerySample" failonerror="true" fork="yes">
             <classpath refid="worldbank-java-sdk.classpath"/>
         </java>
-    </target>
-    <target name="ObjectServiceTest">
-        <mkdir dir="${junit.output.dir}"/>
-        <junit fork="yes" printsummary="withOutAndErr">
-            <formatter type="xml"/>
-            <test name="com.worldbank.api.v2.services.ObjectServiceTest" todir="${junit.output.dir}"/>
-            <classpath refid="worldbank-java-sdk.classpath"/>
-        </junit>
-    </target>
-    <target name="RepositoryApiSample">
-        <java classname="com.worldbank.api.v2.services.example.RepositoryApiSample" failonerror="true" fork="yes">
-            <classpath refid="worldbank-java-sdk.classpath"/>
-        </java>
-    </target>
-    <target name="UserApiSample">
-        <java classname="com.worldbank.api.v2.services.example.UserApiSample" failonerror="true" fork="yes">
-            <classpath refid="worldbank-java-sdk.classpath"/>
-        </java>
-    </target>
-    <target name="FeedSample">
-        <java classname="com.worldbank.api.v2.services.example.FeedSample" failonerror="true" fork="yes">
-            <classpath refid="worldbank-java-sdk.classpath"/>
-        </java>
-    </target>
-    <target name="FeedServiceTest">
-        <mkdir dir="${junit.output.dir}"/>
-        <junit fork="yes" printsummary="withOutAndErr">
-            <formatter type="xml"/>
-            <test name="com.worldbank.api.v2.services.FeedServiceTest" todir="${junit.output.dir}"/>
-            <classpath refid="worldbank-java-sdk.classpath"/>
-        </junit>
     </target>
     <target name="junitreport">
         <junitreport todir="${junit.output.dir}">

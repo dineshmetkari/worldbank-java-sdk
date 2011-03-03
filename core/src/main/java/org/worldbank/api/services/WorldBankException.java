@@ -1,5 +1,5 @@
 /*
- * Copyright 2010 Nabeel Mukhtar 
+ * Copyright 2010-2011 Nabeel Mukhtar 
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"); 
  * you may not use this file except in compliance with the License. 
@@ -17,7 +17,7 @@
 package org.worldbank.api.services;
 
 /**
- * The Class GitHubException.
+ * The Class WorldBankException.
  */
 public class WorldBankException extends RuntimeException {
 
@@ -25,37 +25,33 @@ public class WorldBankException extends RuntimeException {
 	private static final long serialVersionUID = -2392119987027760999L;
 
 	/**
-	 * Instantiates a new git hub exception.
+	 * Instantiates a new world bank exception.
 	 */
 	public WorldBankException() {}
 
 	/**
-	 * Instantiates a new git hub exception.
+	 * Instantiates a new world bank exception.
 	 * 
-	 * @param message
-	 *            the message
+	 * @param message the message
 	 */
 	public WorldBankException(String message) {
 		super(message);
 	}
 
 	/**
-	 * Instantiates a new git hub exception.
+	 * Instantiates a new world bank exception.
 	 * 
-	 * @param cause
-	 *            the cause
+	 * @param cause the cause
 	 */
 	public WorldBankException(Throwable cause) {
 		super(cause);
 	}
 
 	/**
-	 * Instantiates a new git hub exception.
+	 * Instantiates a new world bank exception.
 	 * 
-	 * @param message
-	 *            the message
-	 * @param cause
-	 *            the cause
+	 * @param message the message
+	 * @param cause the cause
 	 */
 	public WorldBankException(String message, Throwable cause) {
 		super(message, cause);
