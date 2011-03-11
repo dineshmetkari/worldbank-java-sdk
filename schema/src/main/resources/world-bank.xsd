@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://www.worldbank.org" xmlns:wb="http://www.worldbank.org">
+  <xs:element name="IncomeLevels">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="wb:incomeLevel"/>
+      </xs:sequence>
+      <xs:attribute name="page" use="required" type="xs:integer"/>
+      <xs:attribute name="pages" use="required" type="xs:integer"/>
+      <xs:attribute name="per_page" use="required" type="xs:integer"/>
+      <xs:attribute name="total" use="required" type="xs:integer"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="countries">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="wb:country"/>
+      </xs:sequence>
+      <xs:attribute name="page" use="required" type="xs:integer"/>
+      <xs:attribute name="pages" use="required" type="xs:integer"/>
+      <xs:attribute name="per_page" use="required" type="xs:integer"/>
+      <xs:attribute name="total" use="required" type="xs:integer"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="country">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="wb:iso2Code"/>
+        <xs:element ref="wb:name"/>
+        <xs:element ref="wb:region"/>
+        <xs:element ref="wb:adminregion"/>
+        <xs:element ref="wb:incomeLevel"/>
+        <xs:element ref="wb:lendingType"/>
+        <xs:element ref="wb:capitalCity"/>
+        <xs:element ref="wb:longitude"/>
+        <xs:element ref="wb:latitude"/>
+      </xs:sequence>
+      <xs:attribute name="id" use="required" type="xs:string"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="iso2Code" type="xs:NMTOKEN"/>
+  <xs:element name="region">
+    <xs:complexType mixed="true">
+      <xs:attribute name="id" use="required" type="xs:string"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="adminregion">
+    <xs:complexType mixed="true">
+      <xs:attribute name="id" use="required"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="capitalCity" type="xs:string"/>
+  <xs:element name="longitude" type="xs:string"/>
+  <xs:element name="latitude" type="xs:string"/>
+  <xs:element name="indicators">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="wb:indicator"/>
+      </xs:sequence>
+      <xs:attribute name="page" use="required" type="xs:integer"/>
+      <xs:attribute name="pages" use="required" type="xs:integer"/>
+      <xs:attribute name="per_page" use="required" type="xs:integer"/>
+      <xs:attribute name="total" use="required" type="xs:integer"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="indicator">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="wb:name"/>
+        <xs:element ref="wb:source"/>
+        <xs:element ref="wb:sourceNote"/>
+        <xs:element ref="wb:sourceOrganization"/>
+        <xs:element ref="wb:topics"/>
+      </xs:sequence>
+      <xs:attribute name="id" use="required" type="xs:string"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="sourceOrganization" type="xs:string"/>
+  <xs:element name="lendingTypes">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="wb:lendingType"/>
+      </xs:sequence>
+      <xs:attribute name="page" use="required" type="xs:integer"/>
+      <xs:attribute name="pages" use="required" type="xs:integer"/>
+      <xs:attribute name="per_page" use="required" type="xs:integer"/>
+      <xs:attribute name="total" use="required" type="xs:integer"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="sources">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="wb:source"/>
+      </xs:sequence>
+      <xs:attribute name="page" use="required" type="xs:integer"/>
+      <xs:attribute name="pages" use="required" type="xs:integer"/>
+      <xs:attribute name="per_page" use="required" type="xs:integer"/>
+      <xs:attribute name="total" use="required" type="xs:integer"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="source">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="wb:name"/>
+        <xs:element ref="wb:description"/>
+        <xs:element ref="wb:url"/>
+      </xs:sequence>
+      <xs:attribute name="id" use="required" type="xs:string"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="description" type="xs:string"/>
+  <xs:element name="url" type="xs:string"/>
+  <xs:element name="name" type="xs:string"/>
+  <xs:element name="sourceNote" type="xs:string"/>
+  <xs:element name="topics">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="wb:topic"/>
+      </xs:sequence>
+      <xs:attribute name="page" type="xs:integer"/>
+      <xs:attribute name="pages" type="xs:integer"/>
+      <xs:attribute name="per_page" type="xs:integer"/>
+      <xs:attribute name="total" type="xs:integer"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="topic">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="wb:sourceNote"/>
+        <xs:element ref="wb:value"/>
+      </xs:sequence>
+      <xs:attribute name="id" use="required" type="xs:string"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="value" type="xs:string"/>
+  <xs:element name="incomeLevel">
+    <xs:complexType mixed="true">
+      <xs:attribute name="id" use="required" type="xs:string"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="lendingType">
+    <xs:complexType mixed="true">
+      <xs:attribute name="id" use="required"/>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
